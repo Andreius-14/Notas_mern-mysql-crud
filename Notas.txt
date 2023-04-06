@@ -1,0 +1,14 @@
+🟥💀🦴
+🌿🌱🌲■■
+
+🌲 La carpeta client se crea con REACT
+
+
+🌲 El Servidor lo creamos Nosotros
+    ■ modulos _ express mysql2 morgan
+    ■ Parace algo Simple
+
+💀 DESARROLLO
+    Nodemon
+
+🦴 para usar express modifica package.json "type":"module"
