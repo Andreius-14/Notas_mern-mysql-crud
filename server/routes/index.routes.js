@@ -10,3 +10,6 @@ router.get("/ping", async (req, res) => {
 });
 
 export default router;
+
+// 🌱 Este codigo se Incrustara en Index.js
+// Al ir a la ruta ping verificamos si la DB se logro conectar

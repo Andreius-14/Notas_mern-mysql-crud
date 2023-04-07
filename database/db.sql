@@ -6,3 +6,5 @@ CREATE TABLE tasks (
     done BOOLEAN NOT NULL DEFAULT 0,
     createAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Una forma rapida de crear Tablas

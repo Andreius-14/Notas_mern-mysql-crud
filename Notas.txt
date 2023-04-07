@@ -2,13 +2,22 @@
 🌿🌱🌲■■
 
 🌲 La carpeta client se crea con REACT
-
+    se nos recomienda usar vite para react que es mas rapido
 
 🌲 El Servidor lo creamos Nosotros
     ■ modulos _ express mysql2 morgan
+    https://www.npmjs.com/package/mysql2
+    https://www.npmjs.com/package/express
+    https://www.npmjs.com/package/morgan
+    
     ■ Parace algo Simple
+
+    ■ Valores del server estan en ./server/config.js - Archivos importantes ./server/index.js
 
 💀 DESARROLLO
     Nodemon
 
 🦴 para usar express modifica package.json "type":"module"
+
+...
+https://www.youtube.com/watch?v=dJbd7BYofp4&t=2539s

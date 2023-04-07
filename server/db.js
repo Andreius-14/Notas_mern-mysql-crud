@@ -9,3 +9,8 @@ export const pool = createPool({
 })
 
 
+/*
+    🌱 Archivo Sensillo
+    🌱 La conexion  mediante npm mysql2
+    🌱 Listo para exportar
+*/
