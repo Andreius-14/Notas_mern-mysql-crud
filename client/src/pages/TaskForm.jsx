@@ -1,10 +1,13 @@
-import { Form, Formik } from "formik";
-import { useTasks } from "../context/TaskProvider";
+// 🌱 Crea/Actualiza Tareas
+
+import { Form, Formik } from "formik";                // ■ Hacer Formularios
+import { useTasks } from "../context/TaskProvider";   // ■ Insertar Cartas
+
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function TaskForm() {
-  const { createTask, getTask, updateTask } = useTasks();
+  const { createTask, getTask, updateTask } = useTasks(); // ■ Insertar Cartas
   const [task, setTask] = useState({
     title: "",
     description: "",
@@ -12,6 +15,7 @@ function TaskForm() {
   const params = useParams();
   const navigate = useNavigate();
 
+  // Actualizar Cambios
   useEffect(() => {
     const loadTask = async () => {
       if (params.id) {
@@ -26,8 +30,11 @@ function TaskForm() {
     loadTask();
   }, []);
 
+
+  // Html desde Js
   return (
     <div>
+      {/* [Todo el return es para hacer - Formulario] */}
       <Formik
         initialValues={task}
         enableReinitialize={true}
@@ -88,3 +95,8 @@ function TaskForm() {
 }
 
 export default TaskForm;
+
+/*
+  🌿 SE comunica con Carpeta (/api)
+  🌿 Al editar usa el mismo formulario que al crear
+*/

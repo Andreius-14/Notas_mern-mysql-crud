@@ -22,8 +22,8 @@ router.delete("/tasks/:id", deleteTask);
 export default router;
 
 
-// 🌱 Este codigo se Incrustara en Index.js
-// 🌱 Este archivo llama Codigo de tasks.controllers.js
+// 🌱 Llamado en -> Index.js
+// 🌲 Llama a -> tasks.controllers.js
 
-// 🌿 Una forma eficiente de no apilar en codigo
-// 🌱 Todas las rutas que tendra a App
+// Una forma eficiente de no apilar en codigo
+// Todas las rutas que tendra a App

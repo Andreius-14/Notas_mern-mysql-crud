@@ -3,6 +3,7 @@ import { pool } from "../db.js";
 
 const router = Router();
 
+// [Verificador de Conexion]
 router.get("/ping", async (req, res) => {
   const [rows] = await pool.query("SELECT 1 + 1 as result");
   console.log(rows[0]);
@@ -11,5 +12,5 @@ router.get("/ping", async (req, res) => {
 
 export default router;
 
-// 🌱 Este codigo se Incrustara en Index.js
+// 🌱 Este codigo se Incrustara en Index.js                 
 // Al ir a la ruta ping verificamos si la DB se logro conectar

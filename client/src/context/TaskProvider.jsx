@@ -1,3 +1,4 @@
+// 🌱 Funciones - y uso del Context
 import { createContext, useContext, useState } from "react";
 import {
   getTasksRequest,
@@ -7,8 +8,15 @@ import {
   updateTaskRequest,
   toggleTaskDoneRequest,
 } from "../api/tasks.api";
+
+// ■ Importa Instancia
 import { TaskContext } from "./TaskContext";
 
+
+// 🟥🟥🟥🟥🟥 [Funciones] 🟥🟥🟥🟥🟥
+
+
+// ■ Usado en  [ TasksCard.jsx -- TasksForm.jsx -- TasksPage.jsx ]
 export const useTasks = () => {
   const context = useContext(TaskContext);
   if (context === undefined) {
@@ -17,7 +25,11 @@ export const useTasks = () => {
   return context;
 };
 
+
+
+// ■ CRUD
 export const TaskContextProvider = ({ children }) => {
+
   const [tasks, setTasks] = useState([]);
 
   async function loadTasks() {
@@ -25,10 +37,10 @@ export const TaskContextProvider = ({ children }) => {
     setTasks(response.data);
   }
 
-  const deleteTask = async (id) => {
+  const getTask = async (id) => {
     try {
-      const response = await deleteTaskRequest(id);
-      setTasks(tasks.filter((task) => task.id !== id));
+      const response = await getTaskRequest(id);
+      return response.data;
     } catch (error) {
       console.error(error);
     }
@@ -43,19 +55,21 @@ export const TaskContextProvider = ({ children }) => {
     }
   };
 
-  const getTask = async (id) => {
+  const updateTask = async (id, newFields) => {
     try {
-      const response = await getTaskRequest(id);
-      return response.data;
+      const response = await updateTaskRequest(id, newFields);
+      console.log(response);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const updateTask = async (id, newFields) => {
+  const deleteTask = async (id) => {
     try {
-      const response = await updateTaskRequest(id, newFields);
-      console.log(response);
+      const response = await deleteTaskRequest(id);
+
+      // 💀 Actualiza al Eliminar - Ya que reemplazamos el useState de setTasks
+      setTasks(tasks.filter((task) => task.id !== id));
     } catch (error) {
       console.error(error);
     }
@@ -75,19 +89,24 @@ export const TaskContextProvider = ({ children }) => {
     }
   };
 
+  // Basta que sea 
   return (
-    <TaskContext.Provider
-      value={{
-        tasks,
-        loadTasks,
-        deleteTask,
-        createTask,
-        getTask,
-        updateTask,
-        toggleTaskDone,
-      }}
-    >
+    <TaskContext.Provider  value={{  tasks,  loadTasks,  deleteTask,  createTask,  getTask,  updateTask,  toggleTaskDone,}}>
       {children}
     </TaskContext.Provider>
   );
 };
+
+// 🌱 Se Conecta a la API
+// 🌱 El contex no es mas que un componente que Creamos para alvergar mas componentes
+
+// El crear un Contex = CreateContex + Provider
+// <TaskContext.Provider> Puede guardar Valores que seran accesibles 
+
+  //<TaskContext.Provider  value={{  tasks,  loadTasks,  deleteTask,  createTask,  getTask,  updateTask,  toggleTaskDone, }}>
+  //      {children}
+  //</TaskContext.Provider>
+
+  //<TaskContext.Provider  value={{ text: "Hello Word" }}>
+  //      {children}
+  //</TaskContext.Provider>

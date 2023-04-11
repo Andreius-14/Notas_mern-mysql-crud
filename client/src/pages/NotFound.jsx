@@ -1,3 +1,4 @@
+// 🌱 Pagina Error
 function NotFound() {
   return (
     <div>NotFound</div>

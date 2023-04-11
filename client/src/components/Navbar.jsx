@@ -20,3 +20,7 @@ function Navbar() {
 }
 
 export default Navbar;
+
+/*
+  🌱 Solo un componente 
+*/
